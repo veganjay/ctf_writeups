@@ -1,3 +1,20 @@
+# Hackvent 2017 write-up
+
+In December 2017, I participated in HackVent run by [Hacking Lab](https://www.hacking-lab.com/index.html).  From December 1st to 24th, a new challenge was released each day.  The first few days started at the "Easy" level and the challenges gradually increased in difficulty as the days went on.  Participants had 24 hours to solve each challenge to receive full points and partial points for later.
+
+I learned so much during this event!  I performed tasks I had never done previously such as:
+
+- PDU SMS decoding
+- Reversing CRC32 calculation
+- Using modular arithmetic and factoring to get an RSA private key
+- Escaping python jails
+- Windows PE header formats
+- Ethereum virtual machine debugging
+- Binary exploitation using ROP gadgets to bypass ASLR
+- Blind SQL Injection implementation
+
+Below are the solutions to all challenges including the hidden ones.
+
 # Day 01: 5th anniversary
 
 ## Challenge description
