@@ -50,7 +50,7 @@ Something happened to my wishlist, please help me.
 
 Provided:
 
-- [Wishlist.txt](https://hackvent.hacking-lab.com/Wishlist.txt)
+- [Wishlist.txt](provided/Wishlist.txt)
 
 ## Solution
 
@@ -111,7 +111,7 @@ I found those strange entries in my Android logcat, but I don't know what it's a
 
 Provided:
 
-- [logcat.txt](https://hackvent.hacking-lab.com/logcat.txt)
+- [logcat.txt](provided/logcat.txt)
 
 ## Solution
 
@@ -142,13 +142,13 @@ Level: Medium
 
 NOTE: New easyfied attachment available
 
-Santa has hidden something for you [Here](https://hackvent.hacking-lab.com/HoHoHo_medium.pdf)
+Santa has hidden something for you [Here](provided/HoHoHo_medium.pdf)
 
 ![HoHoHo_medium.pdf](images/day04_pdf.png) 
 
 Provided:
 
-- [HoHoHo_medium.pdf](https://hackvent.hacking-lab.com/HoHoHo_medium.pdf)
+- [HoHoHo_medium.pdf](provided/HoHoHo_medium.pdf)
 
 ## Solution
 
@@ -274,7 +274,7 @@ Please help us to recover it:
 
 Provided:
 
-- [SANTA.FILE](https://hackvent.hacking-lab.com/SANTA.FILE)
+- [SANTA.FILE](provided/SANTA.FILE)
 
 ## Solution
 
@@ -297,7 +297,7 @@ I found this obfuscated code on a public FTP-Server. But I don't understand what
 
 Provided:
 
-- [True.1337](https://hackvent.hacking-lab.com/True.1337)
+- [True.1337](provided/True.1337)
 
 ## Solution
 
@@ -414,7 +414,7 @@ Level: Medium
 
 Provided:
 
-- [JSONion.zip](https://hackvent.hacking-lab.com/JSONion.zip)
+- [JSONion.zip](provided/JSONion.zip)
 
 ## Solution
 
@@ -877,7 +877,7 @@ Unfortunately this was an incomplete countermeasure. It's still possible to retr
 Provided:
 
 - [Gift logistics wesite](http://challenges.hackvent.hacking-lab.com:7240/giftlogistics/)
-- [Network capture](https://hackvent.hacking-lab.com/giftlogistics.pcapng)
+- [Network capture](provided/giftlogistics.pcapng)
 
 ## Solution
 
@@ -941,7 +941,7 @@ How about some custom asm to obsfucate the codez?
 
 Provided:
 
-- [muffin_asm.py](https://hackvent.hacking-lab.com/muffin_asm.py)
+- [muffin_asm.py](provided/muffin_asm.py)
 
 ## Solution
 
@@ -1071,7 +1071,7 @@ Today's gift was encrypted with the attached program.  Try to unbox your xmas pr
 
 Provided:
 
-- [happy_cryptmas.zip](https://hackvent.hacking-lab.com/happy_cryptmas.zip)
+- [happy_cryptmas.zip](provided/happy_cryptmas.zip)
 
 ## Solution
 
@@ -1173,7 +1173,7 @@ Now find the flag in Thumper's gallery.
 Provided:
 
 - [Link to Danny's gallery](http://challenges.hackvent.hacking-lab.com:3958/gallery/bncqYuhdQVey9omKA6tAFi4rep1FDRtD4H8ftWiw)
-- [account list](https://hackvent.hacking-lab.com/accounts.csv.zip)
+- [account list](provided/accounts.csv.zip)
 
 ## Solution
 
@@ -1376,7 +1376,7 @@ Hint #3: take the hint in the file serious, the black window should not appear (
 
 Provided:
 
-- [Portable_NotExecutable.zip](https://hackvent.hacking-lab.com/Portable_NotExecutable.zip)
+- [Portable_NotExecutable.zip](provided/Portable_NotExecutable.zip)
 
 ## Solution
 
@@ -1435,7 +1435,7 @@ Hint #1: follow the fake flag in the unsigned binary. this challenge needs RE
 
 Provided:
 
-- [BLES-HV17.iso](https://hackvent.hacking-lab.com/BLES-HV17.iso)
+- [BLES-HV17.iso](provided/BLES-HV17.iso)
 
 ## Solution
 
@@ -1915,8 +1915,8 @@ I'm a little tamagotchi who wants fuuuuud, pls don't giveh me too much or I'll c
 Provided:
 
 - nc challenges.hackvent.hacking-lab.com 31337
-- [File #1: tamagotchi](https://hackvent.hacking-lab.com/tamagotchi)
-- [File #2: libc-2.26.so](https://hackvent.hacking-lab.com/libc-2.26.so)
+- [File #1: tamagotchi](provided/tamagotchi)
+- [File #2: libc-2.26.so](provided/libc-2.26.so)
 
 ## Solution
 
@@ -2126,7 +2126,7 @@ Can you help him to unfreeze it?
 
 Provided:
 
-- [frozen_flag.zip](https://hackvent.hacking-lab.com/frozen_flag.zip)
+- [frozen_flag.zip](provided/frozen_flag.zip)
 
 ## Solution
 
@@ -2244,7 +2244,7 @@ Level: Final
 
 Provided:
 
-- [onlyperl.pl](https://hackvent.hacking-lab.com/onlyperl.pl)
+- [onlyperl.pl](provided/onlyperl.pl)
 
 ## Solution
 
