@@ -1,0 +1,49 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Free Promo Code</title>
+<link rel="stylesheet" href="promo_files/promo.css">
+</head>
+<body>
+	<br>
+	<h1>Santa's free flag promotion</h1>
+	<p>This is the Santa free flag promotion. Just enter the promo code
+		below and you will get the flag!</p>
+	<br>
+	<p>
+		Enter your promo code here: <input id="promoCode" type="text">
+		<button class="validate">Validate</button>
+	</p>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="promo_files/santa.png">
+	<br>
+	<div id="flag"></div>
+	<script>
+		document
+				.querySelector('.validate')
+				.addEventListener(
+						'click',
+						function() {
+							var promoCode = document
+									.getElementById('promoCode').value;
+							var strptr = Module._malloc(promoCode.length + 2);
+							Module.writeAsciiToMemory(promoCode, strptr, false);
+
+							var retstrptr = Module.ccall('checkPromoCode',
+									'number', [ 'number' ], [ strptr ]);
+
+							var retstr = Pointer_stringify(retstrptr);
+							document.getElementById("flag").innerHTML = "<h2>Your flag is</h2><p>"
+									+ retstr + "</p>";
+						});
+	</script>
+
+	<script async="" type="text/javascript" src="promo_files/promo.js"></script>
+
+
+
+
+</body></html>
