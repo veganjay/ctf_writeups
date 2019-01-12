@@ -3,7 +3,7 @@
 In December 2018, I participated in the HackVent2018 challenge offered by [Hacking Lab](https://www.hacking-lab.com/index.html).  This was the second year for me,
 and it seemed easier.  Some of the challenges were similar to the past year, so I was able to dig into my old notes and re-use techniques from previous solutions.  Also, knowing the style of HackVent, it was easier (sometimes) to know what to look for and what to ignore.
 
-Asides from solving the challenges, part of the fun is engaging in the [online chat](https://hack.chat/hackvent2018) with other CTF players.  The community is very friendly and takes part in brainstorming and comparing solutions.  Every day, when a new challenge was released, the chat was abuzz with excitement, sometimes with groans and exclamations of "what the heck?" upon receiving seemingly unsolvable problems.  However, without fail, someone became the first to solve it (and thereby establishing elite credibility) and others attempted to follow suit.
+Asides from solving the challenges, part of the fun is engaging in the [online chat](https://hack.chat/?hackvent2018) with other CTF players.  The community is very friendly and takes part in brainstorming and comparing solutions.  Every day, when a new challenge was released, the chat was abuzz with excitement, sometimes with groans and exclamations of "what the heck?" upon receiving seemingly unsolvable problems.  However, without fail, someone became the first to solve it (and thereby establishing elite credibility) and others attempted to follow suit.
 
 My solutions to the problems are detailed here, along with the original materials provided.
 
