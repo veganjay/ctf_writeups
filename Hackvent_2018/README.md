@@ -1,15 +1,11 @@
 # Hackvent 2018 write-up
 
-In December 2018, I participated in HackVent run by [Hacking Lab](https://www.hacking-lab.com/index.html).  A new challenge was released each day between December 1st and 24th.  In addition, there were ten teaser challenges and three hidden challenges.
+In December 2018, I participated in the HackVent2018 challenge offered by [Hacking Lab](https://www.hacking-lab.com/index.html).  This was the second year for me,
+and it seemed easier.  Some of the challenges were similar to the past year, so I was able to dig into my old notes and re-use techniques from previous solutions.  Also, knowing the style of HackVent, it was easier (sometimes) to know what to look for and what to ignore.
 
-This was my second time participating in the event.  Having solved the challenges from the previous year greatly helped for this year's event.  Also, it was very helpful to discuss the challenges on the [ongoing chat](https://hack.chat/?hackvent2018).
+Asides from solving the challenges, part of the fun is engaging in the [online chat](https://hack.chat/hackvent2018) with other CTF players.  The community is very friendly and takes part in brainstorming and comparing solutions.  Every day, when a new challenge was released, the chat was abuzz with excitement, sometimes with groans and exclamations of "what the heck?" upon receiving seemingly unsolvable problems.  However, without fail, someone became the first to solve it (and thereby establishing elite credibility) and others attempted to follow suit.
 
-This event I learned:
-
-- GIMP skills
-- Cutter / Radare2
-
-Below are the solutions to all teaser, daily and hidden challenges.  Source files and other materials that were provided for the challenges are included in this repository.
+My solutions to the problems are detailed here, along with the original materials provided.
 
 # Teaser
 
@@ -23,10 +19,9 @@ Follow the white rabbit.
 
 ## Solution
 
+### Teaser -10: Braille
 
-### Teaser -10
-
-It looks like braille to me.  To help separate into characters, I used gimp (crop and add gridlines):
+This looks like braille.  To help separate into characters, I used gimp (crop and add gridlines):
 
 ![Teaser with gridlines](images/Teaser_crop_gridlines.png)
 
@@ -34,31 +29,31 @@ Using the [braille Wikipedia entry](https://en.wikipedia.org/wiki/Braille) and a
 
 ![Teaser decoded](images/Teaser_decoded.png)
 
-This decodes to the link: [http://bit.ly/2TJvxHt](http://bit.ly/2TJvxHt)
+This decoded to the link: [http://bit.ly/2TJvxHt](http://bit.ly/2TJvxHt)
 
 Which follows the link [https://hackvent.hacking-lab.com/T34s3r_MMXVIII/index.php?flag=UI18-GAUa-lXhq-htyV-w2Wr-0yiV](https://hackvent.hacking-lab.com/T34s3r_MMXVIII/index.php?flag=UI18-GAUa-lXhq-htyV-w2Wr-0yiV)
 
-Decode the flag parameter using rot13 to get the real flag:
+I decoded the flag parameter using rot13 to get the real flag:
 
     $ echo UI18-GAUa-lXhq-htyV-w2Wr-0yiV | rot13
     HV18-TNHn-yKud-uglI-j2Je-0lvI
 
-Follow the link to obtain a PDF file and unlock the next series of teaser challenges:
+I followed the link to obtain a PDF file and unlock the next series of teaser challenges:
 [https://hackvent.hacking-lab.com/T34s3r_MMXVIII/index.php?flag=HV18-TNHn-yKud-uglI-j2Je-0lvI](provided/ZOoxjUSe1OVB7OPoVrsX.pdf).
 
-## Teaser -09
+## Teaser -09: Morse Code
 
-Open the PDF file with libreoffice, select the text hidden away in the top panel:
+I opened the PDF file with libreoffice and selected the text hidden away in the top panel:
 
 .... ...- .---- ---.. -....- --. --- .-. .. -....- --.. .-. ... -... -....- ..- ..-. .- . -....- - ... -.... -.-. -....- -.-. ...- - -  
 
-Use an [online tool](https://www.dcode.fr/morse-code) to decode morse code:
+I used an [online tool](https://www.dcode.fr/morse-code) to decode morse code:
 
 HV18-GORI-ZRSB-UFAE-TS6C-CVTT
 
-## Teaser -08
+## Teaser -08: Magic Eye
 
-Again open the PDF with libreoffice, move the top two blocks away to reveal an image:
+Again I opened the PDF with libreoffice, moved the top two blocks away to reveal an image:
 
 ![magic eye image](images/FCjh4U.png)
 
@@ -70,17 +65,17 @@ There's a few ways to solve this:
 - Stegsolve using the stereogram solver (offset 72)
 - [Online magic eye solver](http://magiceye.ecksdee.co.uk/)
 
-Crop the result, reshape to be a square and invert the colors to obtain a clean QR code:
+I cropped the result, reshaped to be a square and inverted the colors to obtain a clean QR code:
 
 ![teaser08_qrcode](images/teaser08_qrcode.png)
 
-Use an [online QR decoder](https://zxing.org/w/decode.jspx) to obtain the flag:
+I used an [online QR decoder](https://zxing.org/w/decode.jspx) to obtain the flag:
 
 HV18-p2LK-DNcI-YKw7-T9Ad-mH3v
 
-## Teaser -07
+## Teaser -07: Broken QR code
 
-To unlock the remainder of the teaser challenges, run binwalk on the pdf file:
+To unlock the remainder of the teaser challenges, I ran binwalk on the pdf file:
 
     binwalk -e -M --dd=".*" ZOoxjUSe1OVB7OPoVrsX.pdf
     
@@ -111,7 +106,7 @@ Putting it all together gives the flag:
 HV18-3I5a-Rnrl-s28r-SRHj-Lhzx
 
 
-## Teaser -06
+## Teaser -06: Santa toolless encryption
 
 The file [Santa.txt](provided/Santa.txt) states the following:
 
@@ -148,7 +143,7 @@ And the flag is: HV17-NORT-HPOL-EMAI-NSTA-TION
 
 (Note the HV17, this was most likely a mistake on the part of the challenge creators and should have been HV18.)
 
-## Teaser -05
+## Teaser -05: Oracle Stored Procedure
 
 The file that is provided is [teaser.pls](provided/teaser.pls):
 
@@ -189,7 +184,7 @@ This looks like an Oracle stored procedure, but has some strange encoding and al
 
 A quick google search of "create or replace function wrapped" reveals that [Wrapping is the process of hiding PL/SQL source code](https://docs.oracle.com/cd/B28359_01/appdev.111/b28370/wrap.htm#LNPLS016)
 
-I found a nice [presentation from Black Hat](https://www.blackhat.com/presentations/bh-usa-06/BH-US-06-Finnigan.pdf) that discusses this wrapping, and also a [python unwrap.py script](https://github.com/DarkAngelStrike/UnwrapperPLSQL.git) to do the unwrrapping.
+I found a nice [presentation from Black Hat](https://www.blackhat.com/presentations/bh-usa-06/BH-US-06-Finnigan.pdf) that discusses this wrapping, and also a [python unwrap.py script](https://github.com/DarkAngelStrike/UnwrapperPLSQL.git) to do the unwrapping.
 
 To unwrap, I had to first convert the file to Linux formatting:
 
@@ -200,7 +195,7 @@ Then I cloned the utility and ran it on the file:
     $ git clone https://github.com/DarkAngelStrike/UnwrapperPLSQL.git
     $ python UnwrapperPLSQL/unwrap.py teaser.pls teaser.sql
 
-(Alternately an [online unwrapping service](https://www.codecrete.net/UnwrapIt/) is also available.)
+(Alternately an [online unwrapping service](https://www.codecrete.net/UnwrapIt/) is  available.)
 
 The resulting SQL file is much more readable:
 
@@ -304,7 +299,7 @@ Putting it all together, the flag is:
 
 HV18-7389-H0b0-HODL-2969-F0m0
 
-## Teaser -04
+## Teaser -04: Punch card
 
 The file that was provided looks like an old school punch card:
 
@@ -321,7 +316,9 @@ Running the program outputs the decoded punch card:
 
 The flag is: HV18-0LD$-SCH0-0L1S-4W3S-0M3!
 
-## Teaser -03
+Elite Speak decode: OLD SCHOOL IS AWESOME!  (Indeed.)
+
+## Teaser -03: NTFS alternate data stream
 
 This was tricky to find.  I used rar to check for alternate data streams:
 
@@ -347,7 +344,7 @@ Then finally I used an [online QR decoder](https://zxing.org/w/decode.jspx) to o
 HV18-Idwn-whWd-9sNS-ScwC-XjSR
 
 
-## Teaser -02
+## Teaser -02: Encrypted ZIP
 
 The provided file [Final_easy.zip](provided/Final_easy.zip) contains a file called z.zip, which is password protected.
 
@@ -369,7 +366,7 @@ The flag is:  HV18-WO3y-7FLk-ExvN-kDue-28JF
 
 But even moreso, a new file "xenon.elf" appeared!
 
-## Teaser -01
+## Teaser -01: XBOX 360 ELF
 
 The provided file is [xenon.elf](provided/xenon.elf).
 
@@ -415,7 +412,7 @@ A google search revealed that these calls read the value of eFuses, each an 8-by
 - Devkit fuseset 01: 0F0F0F0F0F0F0F0F
 
 
-NOTE: I wasted a lot of time by trying incorrect values from [Efuses by xXXBOXxHACKERXx.txt] (https://digiex.net/attachments/efuses-by-xxxboxxhackerxx-txt.6380/). It mentioned that the value for Devkit fuseset 01 was 0F0F0F0F0F0F0FF0
+NOTE: I wasted a lot of time by trying incorrect values from [Efuses by xXXBOXxHACKERXx.txt](https://digiex.net/attachments/efuses-by-xxxboxxhackerxx-txt.6380/). It mentioned that the value for Devkit fuseset 01 was 0F0F0F0F0F0F0FF0
 
 The following disassembly code manipulates these values:
 
@@ -660,7 +657,7 @@ Ahoy, my name is Santa and I want to be a pirate!
 
 ## Solution
 
-Sometimes the easy ones are harder than the hard challenges.  This was one of them.  It took some serious google skills to learn this was copy protection from the game "secret of monkey island".
+Sometimes the easy ones are harder than the hard challenges.  This was one of them.  It took some serious web searching to learn this was copy protection from the game "secret of monkey island".
 
 A [code wheel is available online](http://www.oldgames.sk/codewheel/secret-of-monkey-island-dial-a-pirate).
 
@@ -701,6 +698,8 @@ Congrats 111!!11
 
 HV18-0Sin-tI5S-R34l-lyC0-oo0L
 
+Elite Speak decode: OSINT is really cool
+
 # Day 06: Mondrian
 
 ## Challenge description
@@ -726,7 +725,7 @@ To install I ran the following commands:
     ./configure
     make
 
-This can be automated in a short script:
+Decoding can be automated in a short script:
 
     $ cat day06.sh 
     #!/bin/sh
@@ -750,6 +749,8 @@ Running the script outputs the flag:
     HV18H-M4ke-S0m3-R3Al-N1c3-artZ
 
 The flag is: HV18-M4ke-S0m3-R3Al-N1c3-artZ
+
+Elite speak decode: Make some real nice arts
 
 # Day 07: flappy.pl
 
@@ -840,7 +841,7 @@ Download and run "Stegsolve":
 
     java -jar Stegsolve.jar
 
-Combine the two images using the "Subtract" function:
+I combined the two images using the "Subtract" function:
 
 1. Open the original file: File -> Open and select "medium_64.png"
 2. Combine the images: Analyze -> Image Combiner and select "medium-64.png"
@@ -922,6 +923,8 @@ The flag is: HV18-YtH3-S4nD-bx5A-Nt4G
 # Day 11: Crypt-o-Math 3.0
 
 ## Challenge description
+
+Level: Medium
 
 Last year's challenge was too easy? Try to solve this one, you h4x0r!
 
@@ -1021,7 +1024,7 @@ Hint(s): How does the bot differentiate your wishes from other people?
 
 ## Solution
 
-This was a tricky one until the hint was released.  In the telegram app, there are setting for username:
+This was a tricky one until the hint was released.  In the telegram app, there are settings for username:
 
 ![telegram settings](images/telegram0.png)
 
@@ -1078,6 +1081,8 @@ The flag is: HV18-9hYf-LSY1-hWdZ-496n-Mbda
 # Day 14: power in the shell
 
 ## Challenge Description
+
+Level: medium
  
 seems to be an easy one ... or wait, what?
 
@@ -1138,6 +1143,8 @@ The flag is: HV18-DzKn-62Qz-dAab-fEou-ImjY
 
 ## Challenge description
 
+Level: Hard
+
 Turn on your TV! Santa will broadcast todays flag on his member channel. Can you get it without subscription?
 
 [Get it here](provided/HACKvent-2018_by_the_oneandonly_HaRdLoCk.ipa)
@@ -1191,12 +1198,11 @@ Putting it all together:
 
 The flag is: HV18-Nc7c-VdEh-pCek-Bw08-jpM3    
 
-# Day 16:
+# Day 16: Pay 100 Bitcoins ... or find the flag
 
 ## Challenge description
 
-Day 16: Pay 100 Bitcoins
-... or find the flag
+Level: Hard
 
 It changed the host. Fortunately it doesn't do the full job ... so there's hope. Get the things straight again and find the flag.
 
@@ -1283,11 +1289,11 @@ Clean up and unmount everything:
 
 The flag is: HV18-622q-gxxe-CGni-X4fT-wQKw
 
-# Day 17
+# Day 17: Faster Key Exchange
 
 ## Challenge Description
 
-Day 17: Faster KEy Exchange
+Level: Hard
 
 You were somehow able to intercept Santa's traffic.
 
@@ -1352,6 +1358,8 @@ The flag is: HV18-DfHe-KE1s-w44y-b3tt-3r!!
 # Day 18: Be Evil
 
 ## Challenge Description
+
+Level: Hard
 
 Only today and for this challenge, please.
 
@@ -1449,7 +1457,7 @@ The flag is HV18-ztZB-nusz-r43L-wopV-ircY
 
 ## Challenge Description
 
-Level Hard:
+Level: Hard
 
 *Get your free flag*
 
@@ -1471,7 +1479,7 @@ The [output of the decompilation](solutions/promo.c) was quite verbose.  The fun
 
     local14 = local13 ^ 90;
 
-I re-write the code in this function for readability:
+I re-wrote the code in this function for readability:
 
     while (counter < strlen(user_input)) {
     
@@ -1591,6 +1599,8 @@ The flag is: HV18-Wl8b-jSu3-TtHY-ziO4-5ikM
 # Day 21: muffinCTF
 
 ## Challenge description
+
+Level: Hard
 
 DAY 1 Services
 --------------------------------------------
@@ -1795,45 +1805,9 @@ Day 2
 
 ## Solution
 
-This time I was more careful in the cleanup.  I downloaded the new image and first booted with a live cd to make changes:
+This time I was more careful in the cleanup.  I downloaded the new image and first booted with a live cd and removed all the backdoors.
 
-Mount file system:
-
-    mkdir /muffin
-    mount /dev/sda1/muffin
-
-Remove backdoors:
-
-    cd /muffin/etc/systemd/multi-user.target.wants/
-    unlink tunn.service
-    unlink log.service
-    unlink keep2.service
-
-Remove bakery test backdoor:
-
-    cd /muffin/var/www/html/
-    # Edit code to remove system
-
-Shut down all services
-
-    systemctl stop garden.service
-    ...
-    
-Connect to NAT
-
-Bakery fixes
-
-    rm -rf ...
-    rm css/components/checkbox.php
-    
-Fix file permissions
-
-    root@muffinCTFBox:/home# find keep/ -user root -exec chown keep:keep {} \;
-    root@muffinCTFBox:/home# find mill/ -user root -exec chown mill:mill {} \;
-    root@muffinCTFBox:/home# find port/ -user root -exec chown port:port {} \;    
-    root@muffinCTFBox:/home# find user/ -user root -exec chown user:user {} \;
-
-Also on Day 2-3 of the event, I wised up and realized I could just create another user and take the muffin CTFs from them!  It was just a matter of not being attacked during that time and I got the HV flag.
+On Day 2-3 of the event, I wised up and realized I could just create another user and take the muffin CTFs from them!  It was just a matter of not being attacked during that time and I got the HV flag.
 
 The flag is: HV18{muffinCTF{d4y_2_g0sh_y0ur_r34lly_pwn1n_th3_stuff_l3l_g00d_b0y_g0_4h34d}}
 
@@ -1873,7 +1847,7 @@ it might take a minute or two until the blue pill shows its effect. blue pill ma
 
 This was a very cool challenge!  Certainly one of my favorites of this HackVent.  The hints were initially very confusing but made sense once diving into the code.
 
-I believe the hint from the mp3 is "I'll show you how deep the **rabbit** hole goes..."  After looking at the constants and functions in the program, this appears to be a mention of the [Rabbit Cipher](https://en.wikipedia.org/wiki/Rabbit_(cipher)). 
+I believe the hint from the mp3 is "I'll show you how deep the **rabbit** hole goes..."  After looking at the constants and functions in the program, this appears to be a reference  to the [Rabbit Cipher](https://en.wikipedia.org/wiki/Rabbit_(cipher)). 
 
 ### Red pill
 
